@@ -21,7 +21,7 @@ const ReplaceTimestamps: Plugin = {
         };
 
         Patcher.before(Messages, "sendMessage", (_, [, msg]) => {
-            const REGEX = /\b(0?[0-9]|1[0-9]|2[0-4]):([0-5][0-9])( ?[ap]m)?\b/gi;
+            const REGEX = /\b(0?[0-9]|1[0-9]|2[0-4]);([0-5][0-9])( ?[ap]m)?\b/gi;
             if (msg.content.search(REGEX) !== -1)
                 msg.content = msg.content.replace(REGEX, (x: string) => {
                     let hours: number, minutes: string, mode: null | "AM" | "PM";
