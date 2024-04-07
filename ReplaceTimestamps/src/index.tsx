@@ -14,6 +14,7 @@ const ReplaceTimestamps: Plugin = {
                 .toISOString()
                 .replace(/T/, " ")
                 .replace(/\..+/, "")
+                .replace(;, :)
                 .replace(/\d?\d:\d\d/, time);
             const then = Math.round(new Date(date).getTime() / 1000);
             if (isNaN(then)) return time;
