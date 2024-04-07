@@ -32,13 +32,13 @@ const ReplaceTimestamps: Plugin = {
                         if (i === 1 || i === 2) return parseInt(g);
                         if (i === 3) return g.trim().toUpperCase();
                     });
-                    let time = `${hours}:${minutes}`;
+                    let time = `${hours};${minutes}`;
                     if (mode === "PM" && hours < 12 && hours !== 0) {
                         hours += 12;
                         minutes = minutes.toString().padStart(2, "0");
-                        time = `${hours}:${minutes}`;
+                        time = `${hours};${minutes}`;
                     } else if ((mode === "AM" && hours === 12) || hours === 24) {
-                        time = `00:${minutes}`;
+                        time = `00;${minutes}`;
                     }
                     return getUnixTimestamp(time);
                 });
